@@ -25,7 +25,6 @@ numberOfItems: any;
 
 
 openPopup() {
-  // this.router.openPopup(['/popup']);
   this.popupService.openPopup();
   // this.router.navigateByUrl('/categories')
 }
