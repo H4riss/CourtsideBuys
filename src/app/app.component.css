@@ -138,3 +138,14 @@ u{
     font-family:Abel;
     
 }
+
+.buttonno{
+    background-color: transparent;
+    border: none;
+    font-family:Georgia; 
+    cursor: pointer;
+    color:blue;
+    align-items: center;
+    justify-content: center;
+    font-size:12px;
+}

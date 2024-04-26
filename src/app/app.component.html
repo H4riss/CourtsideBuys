@@ -55,10 +55,17 @@
 
 
     
-
+<!-- 
     <a routerLink='/photoguide'> Photo Guide </a>
-    <router-outlet></router-outlet>
+    <router-outlet></router-outlet> -->
   
+
+    <div mat-dialog-actions>
+      <a routerLink= '/popup' class="buttonno" mat-button (click)="openPopup()"> <u style="font-family:Georgia">Photo Guide </u> </a>
+    </div>
+    
+
+
 
     <!-- <a routerLink='/photoguide' ngSkipHydration>Photo Guide</a> -->
 
