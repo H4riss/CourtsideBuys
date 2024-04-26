@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AppComponent } from '../app.component';
+import { PopupComponent } from './popup.component';
 
 
 @Injectable({
@@ -10,6 +11,6 @@ export class PopupService {
   constructor(private dialog: MatDialog) {}
 
   openPopup() {
-    this.dialog.open(AppComponent);
+    this.dialog.open(PopupComponent);
   }
 }

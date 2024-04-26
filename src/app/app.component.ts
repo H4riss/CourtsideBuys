@@ -18,6 +18,7 @@ export class AppComponent {
   constructor(private popupService: PopupService) {}
   // constructor(private router:PopupService){}
   // // constructor(private router: Router){}
+  
   closeDialog() {
   }
 numberOfItems: any;
