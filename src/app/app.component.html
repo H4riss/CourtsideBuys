@@ -3,11 +3,18 @@
 <!-- <img class = "Courtsidelogo" src="assets/ok.png" alt ="Title" />  -->
 
 <!-- <head> -->
+
+  <div style ="padding: 20px;">
+    
+  <div class = "container2"> 
     <link rel="stylesheet" href="app.component.css">
   <!-- </head> -->
   <!-- <body>  -->
-    <img class = "Courtsidelogo" src="assets/ok.png" alt ="Title" /> 
+    <div class="courtsidelogo" > 
+    <img  src="assets/ok2.png" alt ="Title" /> 
+  </div>
 
+</div>
 
     <div class="center" style="margin: bottom 50px;">
         <strong> Buys </strong>
@@ -16,7 +23,7 @@
 
     <p>  Please Fill in The Information Below:  </p>
 
-    <input name="email-address" type="text" required placeholder="Email Address" class ="input" style="margin-bottom: 35px;" />
+    <input name="email-address" type="text" required placeholder="Email Address" class ="input" style="margin-bottom: 35px; width:100%;" />
    <div class = "flexbox">
     
 
@@ -61,10 +68,12 @@
   
 
     <div mat-dialog-actions>
-      <a routerLink= '/popup' class="buttonno" mat-button (click)="openPopup()"> <u style="font-family:Georgia">Photo Guide </u> </a>
-      <!-- <router-outlet> </router-outlet> -->
-    </div>
+      <a routerLink= '/popup'  mat-button (click)="openPopup()"> <u style="font-family:Georgia">Photo Guide </u> </a>
+      
     
+    
+
+
 
 
 
@@ -75,6 +84,8 @@
   
   
   <!-- </body> -->
+
+</div>
 
  
 

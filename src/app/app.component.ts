@@ -3,7 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgModule } from "@angular/core";
 import { PopupService } from './popup/popup.service';
 import { MatDialogModule } from '@angular/material/dialog';
-// import { Router } frp0: stringp0: stringp0: stringom 'express';
+// import { Rop0: stringuter } frp0: stringp0: stringp0: stringom 'express';
 
 
 @Component({
@@ -26,6 +26,7 @@ numberOfItems: any;
 
 
 openPopup() {
+  // this.router.openPopup(['/popup']);
   this.popupService.openPopup();
   // this.router.navigateByUrl('/categories')
 }

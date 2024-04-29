@@ -1,6 +1,9 @@
-.Courtsidelogo{
-    width: 100%; 
+.courtsidelogo{
+    width: 60%; 
     height: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 .center {
@@ -113,6 +116,9 @@ flex: 1;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    align-items:center;
+    justify-content:center;
+    display:flex;
 }
 
 .buttonyes{
@@ -124,7 +130,6 @@ flex: 1;
     src: url('../assets/Abel-Regular.ttf') format('truetype');
     align-items: center;
     justify-content: center;
-    margin-left:55px;
     font-size:x-large;
 }
 
@@ -148,4 +153,11 @@ u{
     align-items: center;
     justify-content: center;
     font-size:12px;
+}
+
+.container2{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
 }

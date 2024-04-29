@@ -16,6 +16,7 @@ export class PopupComponent {
     this.popupService.openPopup();
   }
   closeDialog() {
+    this.popupService.closePopup();
   }
 
 }

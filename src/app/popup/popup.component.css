@@ -1,0 +1,55 @@
+/* Style for the Angular Material Dialog container */
+.container {
+    background-color: white; /* Set the background color to white */
+    width: 80vw; /* Set the width to 50% of the viewport width */
+    display:flex; 
+    flex-direction: column; 
+    justify-content:center;
+    align-items:center;
+    padding: 20px;
+  }
+  
+  
+  .h1 { 
+    color:#4e9fcf; 
+    font-size: 24px; 
+    font-family: Abel;
+    font-weight: 500
+   
+  }
+
+  h2 {
+    color:grey; 
+    font-size: 10px; 
+    text-align: center;
+  }
+
+
+  
+  /* Style for the Angular Material Dialog content */
+  div[mat-dialog-content] {
+    padding: 20px; /* Add padding around the content */
+  }
+  
+  /* Style for the Angular Material Dialog actions */
+  .actions {
+    padding: 10px; /* Add padding around the action buttons */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: flex-end; /* Align the buttons to the right */
+    
+  }
+  
+  /* Style for the Angular Material Dialog button */
+  .matbutton {
+    color:white; /* Set the button text color */
+    margin-left: 10px; 
+    font-size: 15px;
+    background-color:#4e9fcf;
+    border:none;
+  }
+
+  .img{
+    height: auto;
+    width: 280px;
+  }
+  
