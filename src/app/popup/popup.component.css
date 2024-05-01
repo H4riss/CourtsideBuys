@@ -3,6 +3,7 @@
     background-color: white; /* Set the background color to white */
     width: 80vw; /* Set the width to 50% of the viewport width */
     display:flex; 
+    height:auto;
     flex-direction: column; 
     justify-content:center;
     align-items:center;

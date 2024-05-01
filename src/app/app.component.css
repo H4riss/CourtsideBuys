@@ -1,5 +1,4 @@
 .courtsidelogo{
-    width: 60%; 
     height: auto; 
     display: flex;
     justify-content: center;
@@ -160,4 +159,19 @@ u{
     justify-content:center;
     align-items: center;
     flex-direction: column;
+}
+
+
+
+.centerimages{
+    display: flex; 
+    justify-content:center;
+    align-items:center;
+}
+
+.buttonimages{
+ position: fixed; 
+ bottom: 0; 
+ margin-bottom:20px;
+ display:flex;
 }
