@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "CourtsideKicksBuys": {
+    "courtsidekicksbuys": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "CourtsideKicksBuys:build:production"
+              "buildTarget": "courtsidekicksbuys:build:production"
             },
             "development": {
-              "buildTarget": "CourtsideKicksBuys:build:development"
+              "buildTarget": "courtsidekicksbuys:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "CourtsideKicksBuys:build"
+            "buildTarget": "courtsidekicksbuys:build"
           }
         },
         "test": {
@@ -107,6 +107,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "courtsidekicksbuys:build:production",
+              "serveTarget": "courtsidekicksbuys:serve:production"
+            },
+            "development": {
+              "buildTarget": "courtsidekicksbuys:build:development",
+              "serveTarget": "courtsidekicksbuys:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
