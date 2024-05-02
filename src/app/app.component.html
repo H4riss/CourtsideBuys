@@ -20,23 +20,23 @@
 
     <p>  Please Fill in The Information Below:  </p>
 
-    <input [(ngModel)] = "email" name ="email-address" type="text" required placeholder="Email Address" class ="input" style="margin-bottom: 35px; width:100%;" />
-   <div class = "flexbox">
+    <input [(ngModel)]="email" name="email-address" type="text" required placeholder="Email Address" class="input" style="margin-bottom: 35px; width:100%;" (keydown.space)="$event.preventDefault()">
+    <div class = "flexbox">
     
 
    <input [(ngModel)] = "name"  name = "name-of-item" type ="text" required placeholder = "Name of Item" class = "input" style = "margin-bottom: 5px;" />
 
-   <input [(ngModel)] = "price"  name = "price" type ="text" required placeholder = "Desired Price" class = "input" style = "margin-bottom: 5px;" />
+   <input [(ngModel)] = "price"  name = "price" type ="text" required placeholder = "Desired Price" class = "input" style = "margin-bottom: 5px;" (keydown.space)="$event.preventDefault()"/>
 
  
   </div>
 
-  <div class = "flexbox">
+  <div class = "flexbox" >
     
 
-    <input [(ngModel)] = "size" name = "size" type ="text" required placeholder = "Size" class = "input" style = "margin-bottom: 5px;" />
+    <input [(ngModel)]="size" name="size" type="text" required placeholder="Size" class="input" style="margin-bottom: 5px;" (keydown.space)="$event.preventDefault()">
  
-    <input [(ngModel)] = "id"  name = "id" type ="text" required placeholder = "Item Id if applicable" class = "input" style = "margin-bottom: 5px;" />
+    <input [(ngModel)]="id" name="id" type="text" required placeholder="Item Id if applicable" class="input" style="margin-bottom: 5px;" (keydown.space)="$event.preventDefault()">
  
   
    </div>
@@ -56,7 +56,8 @@
  
     <div class = "buttoncss"> 
 
-      <button class ="buttonyes"> 
+      <button class ="buttonyes" (click) = 
+      "submit()">  
          
  Submit
 
