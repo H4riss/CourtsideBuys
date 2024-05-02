@@ -3,7 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgModule } from "@angular/core";
 import { PopupService } from './popup/popup.service';
 import { MatDialogModule } from '@angular/material/dialog';
-import { Firestore, addDoc, collection, getDocs } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, getDocs, query, where } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/compat/firestore';
@@ -27,11 +27,11 @@ export class AppComponent implements OnInit {
   constructor(private popupService: PopupService, private snackbar:MatSnackBar){}
   title = 'CourtsideKicksBuys';
   firestore = inject(Firestore);
-  public email: String = "";
-  public name: String = "";
-  public price: String = "";
-  public size: String = "";
-  public id: String = "";
+  public email: string = "";
+  public name: string = "";
+  public price: string = "";
+  public size: string = "";
+  public id: string = "";
  
   tutorial: AngularFirestoreDocument<any> | undefined
 
@@ -65,11 +65,9 @@ export class AppComponent implements OnInit {
       }
       else{ 
 
-        const customId = this.email;
-
-        const docRef = doc(this.firestore, "users", customId);
-
-        await setDoc(docRef, {
+      
+        
+        await setDoc(doc(this.firestore, "users", this.email), {
           name: this.name,
           price: this.price,
           size: this.size,
