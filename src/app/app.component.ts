@@ -64,12 +64,24 @@ export class AppComponent implements OnInit {
         this.snackbar.open('Please fillout all the required feilds', 'Close')
       }
       else{ 
-        const docref = await addDoc(collection(this.firestore, "users"), {
+
+        const customId = this.email;
+
+        const docRef = doc(this.firestore, "users", customId);
+
+        await setDoc(docRef, {
           name: this.name,
           price: this.price,
           size: this.size,
           id: this.id
         });
+
+        // const docref = await addDoc(collection(this.firestore, "users"), {
+        //   name: this.name,
+        //   price: this.price,
+        //   size: this.size,
+        //   id: this.id
+        // });
       }
 
       
