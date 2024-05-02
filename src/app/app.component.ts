@@ -65,21 +65,19 @@ export class AppComponent implements OnInit {
       }
       else{ 
 
-      
+
+        const userDataArray = [
+          { name: this.name },
+          { price: this.price },
+          { size: this.size },
+          { id: this.id }
+        ];
+
         
         await setDoc(doc(this.firestore, "users", this.email), {
-          name: this.name,
-          price: this.price,
-          size: this.size,
-          id: this.id
+          userDataArray
         });
 
-        // const docref = await addDoc(collection(this.firestore, "users"), {
-        //   name: this.name,
-        //   price: this.price,
-        //   size: this.size,
-        //   id: this.id
-        // });
       }
 
       
