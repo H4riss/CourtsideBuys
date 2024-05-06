@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "courtside-buys": {
+      "hosting": {
+        "courtsidekicksbuys": [
+          "courtside-buys"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "courtside-buys"
+  }
+}
