@@ -28,13 +28,17 @@ const messageData = {
 	text: 'hiii'
 };
 
-client.messages.create(DOMAIN, messageData)
-.then((res) => {
-	console.log(res);
-})
-.catch((err) => {
-	console.log(err)
-})
-app.listen(port, () =>{
-	console.log(`server running on port ${port}`)
-}); 
+
+app.post("/", async (req, res) => {
+
+	client.messages.create(DOMAIN, messageData)
+	.then((res) => {
+		console.log(res);
+	})
+	.catch((err) => {
+		console.log(err)
+	})
+	app.listen(port, () =>{
+		console.log(`server running on port ${port}`)
+	}); 
+});
