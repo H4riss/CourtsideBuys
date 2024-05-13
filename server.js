@@ -22,23 +22,30 @@ const client = mailgun.client({username: 'api', key: "5cb81e3cb317264bc50b703b44
 
 
 const messageData = {
-	from: 'Courtside Kicks Buys',
+	from: 'harismukangad@gmail.com',
 	to: 'ishansuhail28@gmail.com',
 	subject: 'hiii',
 	text: 'hiii'
 };
 
 
-app.post("/", async (req, res) => {
+app.post("/email", async (req, res) => {
+
+	const email = req.body
 
 	client.messages.create(DOMAIN, messageData)
 	.then((res) => {
+		res.json({reply})
+
 		console.log(res);
 	})
 	.catch((err) => {
+		res.json({reply})
 		console.log(err)
 	})
-	app.listen(port, () =>{
-		console.log(`server running on port ${port}`)
-	}); 
+	
 });
+
+app.listen(port, () =>{
+	console.log(`server running on port ${port}`)
+}); 
