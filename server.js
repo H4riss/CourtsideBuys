@@ -9,7 +9,7 @@ const cors = require('cors');
 
 
 const app = express();
-const port = 3000;
+const port = 3002;
 app.use(express.json());
 app.use(cors()); 
 
@@ -35,12 +35,12 @@ app.post("/email", async (req, res) => {
 
 	client.messages.create(DOMAIN, messageData)
 	.then((res) => {
-		res.json({reply})
+		res.json({email})
 
 		console.log(res);
 	})
 	.catch((err) => {
-		res.json({reply})
+		res.json({email})
 		console.log(err)
 	})
 	
