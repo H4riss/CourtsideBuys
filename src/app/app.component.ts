@@ -10,6 +10,7 @@ import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/compat/
 import{ MatSnackBar } from '@angular/material/snack-bar';
 import { getFirestore } from 'firebase/firestore';
 import {doc , setDoc } from 'firebase/firestore'; 
+import { MailgunService } from './mailgun.service';
 
 
 // import { Rop0: stringuter } frp0: stringp0: stringp0: stringom 'express';
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
   constructor(private popupService: PopupService, private snackbar:MatSnackBar){}
   title = 'CourtsideKicksBuys';
   firestore = inject(Firestore);
+  mailgun = inject(MailgunService); 
   public email: string = "";
   public name: string = "";
   public price: string = "";
