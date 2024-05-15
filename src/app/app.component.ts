@@ -11,6 +11,7 @@ import{ MatSnackBar } from '@angular/material/snack-bar';
 import { getFirestore } from 'firebase/firestore';
 import {doc , setDoc } from 'firebase/firestore'; 
 import { MailgunService } from './mailgun.service';
+import { response } from 'express';
 
 
 // import { Rop0: stringuter } frp0: stringp0: stringp0: stringom 'express';
@@ -58,7 +59,10 @@ export class AppComponent implements OnInit {
       allfieldsfilled = this.checkvalid(namewithoutspace); 
       allfieldsfilled = this.checkvalid(this.price);
       allfieldsfilled = this.checkvalid(this.size);
+
       
+     this.mailgun.sendemail(this.email).subscribe(response => console.log(response.reply));
+    
 
       console.log("all fields true", allfieldsfilled); 
        
