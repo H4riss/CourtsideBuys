@@ -12,6 +12,8 @@ import { getFirestore } from 'firebase/firestore';
 import {doc , setDoc } from 'firebase/firestore'; 
 import { MailgunService } from './mailgun.service';
 import { response } from 'express';
+import { Injectable } from '@angular/core';
+import { AlertService } from './alert.service';
 
 
 // import { Rop0: stringuter } frp0: stringp0: stringp0: stringom 'express';
@@ -25,8 +27,12 @@ import { response } from 'express';
   styleUrl: './app.component.css'
 })
 
+
+
+
+
 export class AppComponent implements OnInit {
-  constructor(private popupService: PopupService, private snackbar:MatSnackBar){}
+  constructor(private popupService: PopupService, private snackbar:MatSnackBar,private alertService: AlertService ){}
   title = 'CourtsideKicksBuys';
   firestore = inject(Firestore);
   mailgun = inject(MailgunService); 
@@ -51,6 +57,10 @@ export class AppComponent implements OnInit {
       console.log(this.size);
       console.log(this.id);
 
+
+      window.location.reload();
+      
+      this.alertService.openSnackBar('Successful submission!', 'Close');
 
       let namewithoutspace = this.name.replace(/\s/g, "");
       
