@@ -3,7 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgModule } from "@angular/core";
 import { PopupService } from './popup/popup.service';
 import { MatDialogModule } from '@angular/material/dialog';
-import { Firestore, addDoc, collection, getDoc, getDocs, query, where } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, docSnapshots, getDoc, getDocs, query, where } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/compat/firestore';
@@ -69,40 +69,45 @@ export class AppComponent implements OnInit {
       if (allfieldsfilled === false){
         this.snackbar.open('Please fillout all the required feilds', 'Close')
       }
-      else{ 
+      else{
+        
+        const user =  collection(this.firestore, 'users');
 
 
-        const userDataArray = [
-          { name: this.name,
+        console.log('This is the user, ', user)
+
+        const email = doc(user, this.email)
+
+
+        console.log("this is the collection ", email)
+
+        const docSnapshot = await getDoc(email)
+
+        const entries = docSnapshot.data();
+
+        console.log(entries);
+
+
+        const existingEntries = entries?.['entries'] || []
+
+        console.log("Existing entries ", existingEntries)
+
+        const data = {
+          id: this.id,
+          name: this.name,
           price: this.price,
-           size: this.size,
-          id: this.id }
-        ];
-
-
-        const docRef = doc(this.firestore, "users", this.email)
-        const snapShot = await getDoc(docRef)
-        console.log(snapShot)
-
-
-        if (snapShot.exists()) {
-          const existingData = snapShot.data();
-          console.log("Document data:", snapShot.data());
-
-          const updatedData = { ...existingData, ...userDataArray };
-
-          await setDoc(doc(this.firestore, "users", this.email), {
-            updatedData
-          });
+          size: this.size
         }
 
-        else{
-          await setDoc(doc(this.firestore, "users", this.email), {
-            userDataArray
-          });
+        existingEntries.push(data)
 
-        }
 
+        await setDoc(email, {
+          entries: existingEntries
+          }, { merge: true }).then(() => {console.log("Sucess!")}
+          ).catch((Error) => {alert("Failed Submission: "+ Error)})
+
+        
       }
 
       

@@ -9,7 +9,7 @@ const cors = require('cors');
 
 
 const app = express();
-const port = 3002;
+const port = 3000;
 app.use(express.json());
 app.use(cors()); 
 
@@ -22,30 +22,19 @@ const client = mailgun.client({username: 'api', key: "5cb81e3cb317264bc50b703b44
 
 
 const messageData = {
-	from: 'harismukangad@gmail.com',
-	to: 'ishansuhail28@gmail.com',
+	from: 'ishansuhail28@gmail.com',
+	to: 'harismukangad@gmail.com',
 	subject: 'hiii',
 	text: 'hiii'
 };
 
-
-app.post("/email", async (req, res) => {
-
-	const email = req.body
-
-	client.messages.create(DOMAIN, messageData)
-	.then((res) => {
-		res.json({email})
-
-		console.log(res);
-	})
-	.catch((err) => {
-		res.json({email})
-		console.log(err)
-	})
-	
-});
-
+client.messages.create(DOMAIN, messageData)
+.then((res) => {
+	console.log(res);
+})
+.catch((err) => {
+	console.log(err)
+})
 app.listen(port, () =>{
 	console.log(`server running on port ${port}`)
 }); 
