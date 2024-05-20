@@ -45,6 +45,11 @@ export class AppComponent implements OnInit {
     //   console.log("reached firebase success",response.docs); });
     }
 
+    onFileSelected(event: any): void {
+  const file: File = event.target.files[0];
+  // Process the file here (e.g., upload to server, display preview, etc.)
+}
+
     async submit(){
       console.log(this.email);
       console.log(this.name);
@@ -53,9 +58,11 @@ export class AppComponent implements OnInit {
       console.log(this.id);
 
 
-      // window.location.reload();
-      this.alertService.openSnackBar('Succesful submission!', 'Close')
-
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+      
+      this.alertService.openSnackBar('Successful submission!', 'Close');
 
       let namewithoutspace = this.name.replace(/\s/g, "");
       
