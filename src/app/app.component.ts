@@ -16,6 +16,7 @@ import { getStorage, ref } from "firebase/storage";
 
 import { AlertService } from './alert.service';
 import { uploadBytes } from '@angular/fire/storage';
+import { File } from 'buffer';
 
 
 // import { Rop0: stringuter } frp0: stringp0: stringp0: stringom 'express';
@@ -40,27 +41,18 @@ export class AppComponent {
   public price: string = "";
   public size: string = "";
   public id: string = "";
+  public photosUploaded: boolean = false;
   
  
   tutorial: AngularFirestoreDocument<any> | undefined
+  files: FileList | null = null;
 
   
   onFileChange(event: any): void {
-    const file = event.target.files[0];
-    if(file){
-      const storage = getStorage();
-      const storageRef = ref(storage, "ishansuhail28@gmail.com/images");
-      
-
-      // 'file' comes from the Blob or File API
-      uploadBytes(storageRef, file).then(() => {
-        console.log('Uploaded a blob or file!');
-      });
-
-      console.log(file)
-      //upload to cloud storage
+    this.files = event.target.files;
+    if (this.files) {
+      this.photosUploaded = true;
     }
-  // Process the file here (e.g., upload to server, display preview, etc.)
   }
 
     async submit(){
@@ -69,6 +61,21 @@ export class AppComponent {
       console.log(this.price);
       console.log(this.size);
       console.log(this.id);
+
+      if (this.photosUploaded == true && this.files != null){
+        const storage = getStorage();
+        for (let i = 0; i < 7; i++) {
+            const file = this.files[i];
+            const storageRef = ref(storage, `${this.email}/${file.name}`);
+
+              // 'file' comes from the Blob or File API
+            uploadBytes(storageRef, file).then(() => {
+                console.log(`Uploaded ${file.name}`);
+            }).catch(error => {
+                console.error(`Failed to upload ${file.name}:`, error);
+            });
+        }
+      }
 
 
       setTimeout(() => {
