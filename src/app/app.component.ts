@@ -11,8 +11,11 @@ import{ MatSnackBar } from '@angular/material/snack-bar';
 import { getFirestore } from 'firebase/firestore';
 import {doc , setDoc } from 'firebase/firestore'; 
 import { MailgunService } from './mailgun.service';
-import { response } from 'express';
+
+import { getStorage, ref } from "firebase/storage";
+
 import { AlertService } from './alert.service';
+import { uploadBytes } from '@angular/fire/storage';
 
 
 // import { Rop0: stringuter } frp0: stringp0: stringp0: stringom 'express';
@@ -26,8 +29,9 @@ import { AlertService } from './alert.service';
   styleUrl: './app.component.css'
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private popupService: PopupService, private snackbar:MatSnackBar, private alertService: AlertService){}
+  
   title = 'CourtsideKicksBuys';
   firestore = inject(Firestore);
   mailgun = inject(MailgunService); 
@@ -36,19 +40,28 @@ export class AppComponent implements OnInit {
   public price: string = "";
   public size: string = "";
   public id: string = "";
+  
  
   tutorial: AngularFirestoreDocument<any> | undefined
 
-  ngOnInit(){
-    // Observable<any> tutorial = this.firestore.doc("users");
-    // getDocs(collection(this.firestore,"users")).then((response) => {
-    //   console.log("reached firebase success",response.docs); });
-    }
+  
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+    if(file){
+      const storage = getStorage();
+      const storageRef = ref(storage, "ishansuhail28@gmail.com/images");
+      
 
-    onFileSelected(event: any): void {
-  const file: File = event.target.files[0];
+      // 'file' comes from the Blob or File API
+      uploadBytes(storageRef, file).then(() => {
+        console.log('Uploaded a blob or file!');
+      });
+
+      console.log(file)
+      //upload to cloud storage
+    }
   // Process the file here (e.g., upload to server, display preview, etc.)
-}
+  }
 
     async submit(){
       console.log(this.email);

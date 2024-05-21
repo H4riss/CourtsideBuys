@@ -1,118 +1,121 @@
-  <div style ="padding: 20px;">
+<div style="padding: 20px">
+  <div class="container2">
+    <link rel="stylesheet" href="app.component.css" />
 
-  <div class = "container2"> 
-    <link rel="stylesheet" href="app.component.css">
-
-
-    <div class="courtsidelogo" > 
-    <img  style = "width:100%" src="assets/ok2.png" alt ="Title" /> 
-  </div>
-
-</div>
-
-
-
-
-    <div class="center" style="margin: bottom 50px;">
-        <strong> Buys </strong>
-
+    <div class="courtsidelogo">
+      <img style="width: 100%" src="assets/ok2.png" alt="Title" />
     </div>
-
-    <p>  Please Fill in The Information Below:  </p>
-
-    <input [(ngModel)]="email" name="email-address" type="text" required placeholder="Email Address" class="input" style="margin-bottom: 35px; width:100%;" (keydown.space)="$event.preventDefault()">
-    <div class = "flexbox">
-    
-
-   <input [(ngModel)] = "name"  name = "name-of-item" type ="text" required placeholder = "Name of Item" class = "input" style = "margin-bottom: 5px;" />
-
-   <input [(ngModel)] = "price"  name = "price" type ="text"  required placeholder = "Desired Price"  class = "input" style = "margin-bottom: 5px;" (keydown.space)="$event.preventDefault()"/>
-
- 
   </div>
 
-  <div class = "flexbox" >
-    
+  <div class="center" style="margin: bottom 50px">
+    <strong> Buys </strong>
+  </div>
 
-    <input [(ngModel)]="size" name="size" type="text" required placeholder="Size" class="input" style="margin-bottom: 5px;" (keydown.space)="$event.preventDefault()">
- 
-    <input [(ngModel)]="id" name="id" type="text" required placeholder="Item Id if applicable" class="input" style="margin-bottom: 5px;" (keydown.space)="$event.preventDefault()">
- 
-  
-   </div>
+  <p>Please Fill in The Information Below:</p>
 
-  <div class = "flexbox">
-    
+  <input
+    [(ngModel)]="email"
+    name="email-address"
+    type="text"
+    required
+    placeholder="Email Address"
+    class="input"
+    style="margin-bottom: 35px; width: 100%"
+    (keydown.space)="$event.preventDefault()"
+  />
+  <div class="flexbox">
+    <input
+      [(ngModel)]="name"
+      name="name-of-item"
+      type="text"
+      required
+      placeholder="Name of Item"
+      class="input"
+      style="margin-bottom: 5px"
+    />
 
+    <input
+      [(ngModel)]="price"
+      name="price"
+      type="text"
+      required
+      placeholder="Desired Price"
+      class="input"
+      style="margin-bottom: 5px"
+      (keydown.space)="$event.preventDefault()"
+    />
+  </div>
+
+  <div class="flexbox">
+    <input
+      [(ngModel)]="size"
+      name="size"
+      type="text"
+      required
+      placeholder="Size"
+      class="input"
+      style="margin-bottom: 5px"
+      (keydown.space)="$event.preventDefault()"
+    />
+
+    <input
+      [(ngModel)]="id"
+      name="id"
+      type="text"
+      required
+      placeholder="Item Id if applicable"
+      class="input"
+      style="margin-bottom: 5px"
+      (keydown.space)="$event.preventDefault()"
+    />
+  </div>
+
+  <div class="flexbox">
     <!-- <input name" = "name-of-item" type ="text" required placeholder = "Name of Item" class = "input" style = "margin-bottom: 5px;" />  -->
 
-    <label class="input" id = "adjusted" style = "color:#4e9fcf">
-       <input type="file" multiple/>
+    <label class="input" id="adjusted" style="color: #4e9fcf">
+      <input type="file" multiple (change)="onFileChange($event)" />
       Upload Photos of Items
-    </label> 
+    </label>
 
     <!-- <input name = "price" type ="text" required placeholder = "Desired Price" class = "input" style = "margin-bottom: 5px;" /> -->
 
- 
-    <div class = "buttoncss"> 
-
-      <button class ="buttonyes" (click) = 
-      "submit()">  
-         
- Submit
-
-        </button> 
-        
-    </div> 
-    
-  
+    <div class="buttoncss">
+      <button class="buttonyes" (click)="submit()">Submit</button>
     </div>
+  </div>
 
-
-    
-<!-- 
+  <!-- 
     <a routerLink='/photoguide'> Photo Guide </a>
     <router-outlet></router-outlet> -->
-  
 
-    <div mat-dialog-actions>
-      <a routerLink= '/popup'  mat-button (click)="openPopup()"> <u style="font-family:Georgia">Photo Guide </u> </a>
-      
-  <div class = "centerimages">
+  <div mat-dialog-actions>
+    <a routerLink="/popup" mat-button (click)="openPopup()">
+      <u style="font-family: Georgia">Photo Guide </u>
+    </a>
 
+    <div class="centerimages">
       <div class="buttonimages">
-        
-<a href = "https://www.instagram.com/courtsidekicks/?hl=en"> 
-  <img src="assets/insta.png"> 
-</a>
+        <a href="https://www.instagram.com/courtsidekicks/?hl=en">
+          <img src="assets/insta.png" />
+        </a>
 
+        <a
+          href="https://www.tiktok.com/@courtsidekicks?lang=en&utm_source=hoobe&utm_medium=social"
+        >
+          <img src="assets/tiktok.png" />
+        </a>
 
-<a href = "https://www.tiktok.com/@courtsidekicks?lang=en&utm_source=hoobe&utm_medium=social"> 
-<img src = "assets/tiktok.png">
-</a>
-
-<a href = "https://www.youtube.com/channel/UCguJIajq4QomHzopg6jtFEA?utm_source=hoobe&utm_medium=social" >
-<img src = "assets/youtube.png">
-
-</a>
+        <a
+          href="https://www.youtube.com/channel/UCguJIajq4QomHzopg6jtFEA?utm_source=hoobe&utm_medium=social"
+        >
+          <img src="assets/youtube.png" />
+        </a>
       </div>
-
     </div>
-    
-
-
-
-
 
     <!-- <a routerLink='/photoguide' ngSkipHydration>Photo Guide</a> -->
 
-    
-
-  
-  
-  <!-- </body> -->
-
+    <!-- </body> -->
+  </div>
 </div>
-
- 
-
