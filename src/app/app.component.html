@@ -77,9 +77,6 @@
       <input type="file" multiple (change)="onFileChange($event)" />
       Upload Photos of Items
     </label>
-    <ul> 
-  <li *ngFor  = "let message of imageuploaded">  {{message}} </li>
-    </ul>
 
     <!-- <input name = "price" type ="text" required placeholder = "Desired Price" class = "input" style = "margin-bottom: 5px;" /> -->
 
@@ -91,6 +88,15 @@
   <!-- 
     <a routerLink='/photoguide'> Photo Guide </a>
     <router-outlet></router-outlet> -->
+
+  <div>
+    <ul>
+      <li *ngFor="let message of imageuploaded; let i = index">
+        {{ message }}
+        <button (click)="removeFile(i)">Remove</button>
+      </li>
+    </ul>
+  </div>
 
   <div mat-dialog-actions>
     <a routerLink="/popup" mat-button (click)="openPopup()">

@@ -18,6 +18,8 @@ import { AlertService } from './alert.service';
 import { uploadBytes } from '@angular/fire/storage';
 import { File } from 'buffer';
 import { Module } from 'module';
+import { CommonModule, NgFor } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -27,7 +29,7 @@ import { Module } from 'module';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,MatDialogModule,FormsModule,FormsModule],
+  imports: [RouterOutlet,RouterLink,MatDialogModule,FormsModule,FormsModule,NgFor, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -46,15 +48,21 @@ export class AppComponent {
   public photosUploaded: boolean = false;
   public imageuploaded: string[] =[];
  
-  tutorial: AngularFirestoreDocument<any> | undefined
+  // tutorial: AngularFirestoreDocument<any> | undefined
   files: FileList | null = null;
 
   
   onFileChange(event: any): void {
     this.files = event.target.files;
     if (this.files) {
-      this.photosUploaded = true;
+      for(let i = 0; i < 7; i++){
+        this.photosUploaded = true;
+        this.imageuploaded.push(this.files[i].name);
+      }
     }
+  }
+  removeFile(index: number): void {
+    this.imageuploaded.splice(index, 1);
   }
 
     async submit(){
@@ -73,7 +81,7 @@ export class AppComponent {
               // 'file' comes from the Blob or File API
             uploadBytes(storageRef, file).then(() => {
                 console.log(`Uploaded ${file.name}`);
-                this.imageuploaded.push(file.name);
+                
             }).catch(error => {
                 console.error(`Failed to upload ${file.name}:`, error);
             });
