@@ -77,6 +77,9 @@
       <input type="file" multiple (change)="onFileChange($event)" />
       Upload Photos of Items
     </label>
+    <ul> 
+  <li *ngFor  = "let message of imageuploaded">  {{message}} </li>
+    </ul>
 
     <!-- <input name = "price" type ="text" required placeholder = "Desired Price" class = "input" style = "margin-bottom: 5px;" /> -->
 

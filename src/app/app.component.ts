@@ -17,6 +17,8 @@ import { getStorage, ref } from "firebase/storage";
 import { AlertService } from './alert.service';
 import { uploadBytes } from '@angular/fire/storage';
 import { File } from 'buffer';
+import { Module } from 'module';
+
 
 
 // import { Rop0: stringuter } frp0: stringp0: stringp0: stringom 'express';
@@ -25,7 +27,7 @@ import { File } from 'buffer';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,MatDialogModule,FormsModule],
+  imports: [RouterOutlet,RouterLink,MatDialogModule,FormsModule,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -42,7 +44,7 @@ export class AppComponent {
   public size: string = "";
   public id: string = "";
   public photosUploaded: boolean = false;
-  
+  public imageuploaded: string[] =[];
  
   tutorial: AngularFirestoreDocument<any> | undefined
   files: FileList | null = null;
@@ -71,6 +73,7 @@ export class AppComponent {
               // 'file' comes from the Blob or File API
             uploadBytes(storageRef, file).then(() => {
                 console.log(`Uploaded ${file.name}`);
+                this.imageuploaded.push(file.name);
             }).catch(error => {
                 console.error(`Failed to upload ${file.name}:`, error);
             });
@@ -99,7 +102,7 @@ export class AppComponent {
       console.log("all fields true", allfieldsfilled); 
        
       if (allfieldsfilled === false){
-        this.snackbar.open('Please fillout all the required feilds', 'Close')
+        this.snackbar.open('Please fillout all the required fields', 'Close')
       }
       else{
         
